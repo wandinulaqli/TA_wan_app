@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS File  -->
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <!-- Bootstrap Icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- favicon_io -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/site.webmanifest')}}">
+
+    <!-- HTML Meta Tags -->
+    <title>tugasAkhir_wanDinulAqli</title>
+    <meta name="description" content="machineLearning VS computerVision" />
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="tugasAkhir_wanDinulAqli" />
+    <meta itemprop="description" content="machineLearning VS computerVision" />
+    <meta itemprop="image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://wandinulaqli.github.io/ta/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="tugasAkhir_wanDinulAqli" />
+    <meta property="og:description" content="machineLearning VS computerVision" />
+    <meta property="og:image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="tugasAkhir_wanDinulAqli" />
+    <meta name="twitter:description" content="machineLearning VS computerVision" />
+    <meta name="twitter:image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+
+    <!-- Meta Tags Generated via https://heymeta.com -->
+
+  </head>
+
+  <body>
+    <video autoplay loop muted>
+      <source src="{{url_for('static' ,filename='BG BY CWS.mp4')}}">
+    </video>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">tugasAkhir_wanDinulAqli</a>
+        <!-- <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Plans</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul> -->
+      </div>
+    </nav>
+    <main class="container">
+      <div class="page-content">
+        <div class="inner-content">
+          <h1 class="heading">Wan</h1>
+          <p>Perbandingan Algoritma Machine Learning dan Computer Vision Untuk Prediksi Jenis Kelamin Pada Gambar Wajah Menggunakan Metode Local Binary Pattern Histogram</p>
+          <div class="buttons">
+            <form class="" action="" method="post" enctype="multipart/form-data">
+              <input class="inpf" type="file" name="file" value="tarikLepaskan.." style="width:100%; height:30%; border:2px solid pink; border-radius:10px; font-size:20px; font-weight: bold; background-color:pink; padding:5px; cursor:pointer;">
+              <hr>
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul>
+                    {% for messages in messages %}
+                      <li>{{ messages }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <ul>
+                    <li>goodLuck bukUlpa &#128579;</li>
+                  </ul>
+                {% endif %}
+              {% endwith %}
+              <hr>
+              <br><hr><hr>
+              <button class="inpb" type="submit" style="width:100%; height:30%; border:2px solid pink; border-radius:10px; font-size:20px; font-weight: bold; background-color:pink; padding:5px; cursor:pointer;">runPredict</button>
+            </form>
+            <!-- <a href="#" class="active">Learn more</a>
+            <a href="#">Browse</a> -->
+          </div>
+          <!-- <div class="social-links">
+            <a href="#" class="bi bi-facebook"></a>
+            <a href="#" class="bi bi-youtube"></a>
+            <a href="#" class="bi bi-instagram"></a>
+            <a href="#" class="bi bi-linkedin"></a>
+          </div> -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

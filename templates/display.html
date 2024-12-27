@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style_display.css')}}">
+
+    <!-- favicon_io -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/apple-touch-icon')}}.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/favicon-32x32.pn')}}g">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/favicon-16x16.pn')}}g">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io-(Wan_Nicone_pink)/site.webmanifest')}}">
+
+    <!-- HTML Meta Tags -->
+    <title>tugasAkhir_wanDinulAqli</title>
+    <meta name="description" content="machineLearning VS computerVision" />
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="tugasAkhir_wanDinulAqli" />
+    <meta itemprop="description" content="machineLearning VS computerVision" />
+    <meta itemprop="image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://wandinulaqli.github.io/ta/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="tugasAkhir_wanDinulAqli" />
+    <meta property="og:description" content="machineLearning VS computerVision" />
+    <meta property="og:image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="tugasAkhir_wanDinulAqli" />
+    <meta name="twitter:description" content="machineLearning VS computerVision" />
+    <meta name="twitter:image" content="https://github.com/wandinulaqli/ta/blob/main/favicon_io-(Wan_Nicone_pink)/android-chrome-192x192.png" />
+    <!-- Meta Tags Generated via https://heymeta.com -->
+  </head>
+
+  <body>
+    {%if filename%}
+    <hr><hr>
+    <h1>LBPH With pengolahanCitra</h1>
+    {%for i in dfCv.index%}
+    <h2>pltLBPH_wajah{{arr[i]}}</h2>
+    <center><img src="{{url_for('display_plt', filename='pltLBPH_wajah'+arr[i]+'_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    {%endfor%}
+    <hr><hr>
+    <h1>LBPH With ComputerVision</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictCV_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>ComputerVision</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictCV</th>
+            <th>confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfCv.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfCv.faces[i]}}</td>
+            <td>{{dfCv.pb0[i]}}</td>
+            <td>{{dfCv.pb1[i]}}</td>
+            <td>{{dfCv.pb2[i]}}</td>
+            <td>{{dfCv.pb3[i]}}</td>
+            <td>{{dfCv.pb4[i]}}</td>
+            <td>{{dfCv.pb5[i]}}</td>
+            <td>{{dfCv.pb6[i]}}</td>
+            <td>{{dfCv.pb7[i]}}</td>
+            <td>{{dfCv.pb8[i]}}</td>
+            <td>{{dfCv.pb9[i]}}</td>
+            <td>{{dfCv.hPredictCV[i]}}</td>
+            <td>{{dfCv.confidence[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(LogisticRegression) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(LogisticRegression)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictLR_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>LogisticRegression</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictLR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfLR.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfLR.faces[i]}}</td>
+            <td>{{dfLR.pb0[i]}}</td>
+            <td>{{dfLR.pb1[i]}}</td>
+            <td>{{dfLR.pb2[i]}}</td>
+            <td>{{dfLR.pb3[i]}}</td>
+            <td>{{dfLR.pb4[i]}}</td>
+            <td>{{dfLR.pb5[i]}}</td>
+            <td>{{dfLR.pb6[i]}}</td>
+            <td>{{dfLR.pb7[i]}}</td>
+            <td>{{dfLR.pb8[i]}}</td>
+            <td>{{dfLR.pb9[i]}}</td>
+            <td>{{dfLR.hPredictLR[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(DecisionTreeClassifier) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(DecisionTreeClassifier)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictDS_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>DecisionTreeClassifier</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictDS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfDS.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfDS.faces[i]}}</td>
+            <td>{{dfDS.pb0[i]}}</td>
+            <td>{{dfDS.pb1[i]}}</td>
+            <td>{{dfDS.pb2[i]}}</td>
+            <td>{{dfDS.pb3[i]}}</td>
+            <td>{{dfDS.pb4[i]}}</td>
+            <td>{{dfDS.pb5[i]}}</td>
+            <td>{{dfDS.pb6[i]}}</td>
+            <td>{{dfDS.pb7[i]}}</td>
+            <td>{{dfDS.pb8[i]}}</td>
+            <td>{{dfDS.pb9[i]}}</td>
+            <td>{{dfDS.hPredictDS[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(RandomForestClassifier) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(RandomForestClassifier)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictRF_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>RandomForestClassifier</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictRF</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfRF.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfRF.faces[i]}}</td>
+            <td>{{dfRF.pb0[i]}}</td>
+            <td>{{dfRF.pb1[i]}}</td>
+            <td>{{dfRF.pb2[i]}}</td>
+            <td>{{dfRF.pb3[i]}}</td>
+            <td>{{dfRF.pb4[i]}}</td>
+            <td>{{dfRF.pb5[i]}}</td>
+            <td>{{dfRF.pb6[i]}}</td>
+            <td>{{dfRF.pb7[i]}}</td>
+            <td>{{dfRF.pb8[i]}}</td>
+            <td>{{dfRF.pb9[i]}}</td>
+            <td>{{dfRF.hPredictRF[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(NaiveBayes) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(NaiveBayes)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictNB_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>NaiveBayes</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictNB</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfNB.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfNB.faces[i]}}</td>
+            <td>{{dfNB.pb0[i]}}</td>
+            <td>{{dfNB.pb1[i]}}</td>
+            <td>{{dfNB.pb2[i]}}</td>
+            <td>{{dfNB.pb3[i]}}</td>
+            <td>{{dfNB.pb4[i]}}</td>
+            <td>{{dfNB.pb5[i]}}</td>
+            <td>{{dfNB.pb6[i]}}</td>
+            <td>{{dfNB.pb7[i]}}</td>
+            <td>{{dfNB.pb8[i]}}</td>
+            <td>{{dfNB.pb9[i]}}</td>
+            <td>{{dfNB.hPredictNB[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(KNeighborsClassifier) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(KNeighborsClassifier)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictKNN_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>KNeighborsClassifier</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictKNN</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfKNN.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfKNN.faces[i]}}</td>
+            <td>{{dfKNN.pb0[i]}}</td>
+            <td>{{dfKNN.pb1[i]}}</td>
+            <td>{{dfKNN.pb2[i]}}</td>
+            <td>{{dfKNN.pb3[i]}}</td>
+            <td>{{dfKNN.pb4[i]}}</td>
+            <td>{{dfKNN.pb5[i]}}</td>
+            <td>{{dfKNN.pb6[i]}}</td>
+            <td>{{dfKNN.pb7[i]}}</td>
+            <td>{{dfKNN.pb8[i]}}</td>
+            <td>{{dfKNN.pb9[i]}}</td>
+            <td>{{dfKNN.hPredictKNN[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- _______________________ML(SupportVectorMachine) -->
+    <hr><hr>
+    <h1>LBPH With MachineLearningModels<br>(SupportVectorMachine)</h1>
+    <center><img src="{{url_for('display_image', filename='hPredictSVM_'+filename)}}" alt="" width="50%" height="10%" style="border-radius:20px;"></center>
+    <h2>LBPH Features and Prediction<br>SupportVectorMachine</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>facesGray</th>
+            <th>faces_n</th>
+            <th>pb0</th>
+            <th>pb1</th>
+            <th>pb2</th>
+            <th>pb3</th>
+            <th>pb4</th>
+            <th>pb5</th>
+            <th>pb6</th>
+            <th>pb7</th>
+            <th>pb8</th>
+            <th>pb9</th>
+            <th>hPredictSVM</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in dfSVM.index%}
+          <tr>
+            <td>
+              <img src="{{url_for('display_faceImage', filename='lbpFace'+arr[i]+'_'+filename)}}" alt="" width="50px" height="50px">
+            </td>
+            <td>{{dfSVM.faces[i]}}</td>
+            <td>{{dfSVM.pb0[i]}}</td>
+            <td>{{dfSVM.pb1[i]}}</td>
+            <td>{{dfSVM.pb2[i]}}</td>
+            <td>{{dfSVM.pb3[i]}}</td>
+            <td>{{dfSVM.pb4[i]}}</td>
+            <td>{{dfSVM.pb5[i]}}</td>
+            <td>{{dfSVM.pb6[i]}}</td>
+            <td>{{dfSVM.pb7[i]}}</td>
+            <td>{{dfSVM.pb8[i]}}</td>
+            <td>{{dfSVM.pb9[i]}}</td>
+            <td>{{dfSVM.hPredictSVM[i]}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <hr style="bottom:0;"><b style="color:white; font-style:italic; font-size:20px; text-align:center;">Terimakasih..<b><hr>
+    {%else%}
+    <h5>sepedaBalap</h5>
+    {%endif%}
+  </body>
+</html>
